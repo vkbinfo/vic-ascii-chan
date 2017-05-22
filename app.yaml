@@ -5,6 +5,12 @@ threadsafe: true
 handlers:
 - url: /
   script: home.app
+- url: /blog/newpost
+  script: home.app
+- url: /blog
+  script: home.app
+- url: /blog/([0-9]+)
+  script: home.app
 
 libraries:
 - name: jinja2

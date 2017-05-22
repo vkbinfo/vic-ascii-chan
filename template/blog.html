@@ -1,0 +1,11 @@
+{%extends "base.html"%}
+{%block content%}
+{%for x in blogs%}
+<div style="margin:30px;width:800px;">
+
+
+<div class="subject">{{x.subject}}</div>
+<div class=""><pre>{{x.content}}</pre></div>
+</div>
+{%endfor%}
+{%endblock%}
