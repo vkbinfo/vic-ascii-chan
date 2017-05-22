@@ -25,7 +25,8 @@ class handler(webapp2.RequestHandler):
 
 class MainPage(handler):
     def render_page(self,art='',title='',error=''):
-        self.render("front.html",art=art,title=title,error=error)
+        arts=db.GqlQuery("SELECT * FROM Art order by time DESC")
+        self.render("front.html",art=art,title=title,error=error,arts=arts)
 
     def get(self):
         self.render_page()
@@ -44,8 +45,9 @@ class MainPage(handler):
             self.render_page(error="you must input art and title")
 
         else:
-            self.write("Thanks")
-
+            newData=Art(title=title,art=art)
+            newData.put()
+            self.write("wow, cool--> YOu go vic with patience")
 
 app = webapp2.WSGIApplication([
     ('/', MainPage)

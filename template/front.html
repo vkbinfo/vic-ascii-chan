@@ -20,6 +20,10 @@
             </div>
             <button type="submit" name="button">Submit</button>
         </form>
-
+    <hr>
+  {%for art in arts%}
+  <div class="title">{{art.title}}</div>
+  <pre class="art">{{art.art}}</pre>
+  {%endfor%}
     </body>
 </html>
